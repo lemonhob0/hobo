@@ -1,0 +1,69 @@
+@import "../../vars.scss";
+.training {
+  color: $white;
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 2em;
+  padding: 0.7em 1.5em;
+  border-radius: $minRadius;
+  background: $black2;
+  font-family: var(--font-ar);
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+  @include desktop {
+    &:hover {
+      box-shadow: 0 0 0 1px $grey;
+    }
+  }
+  div {
+    transition: 0.2s;
+    z-index: -1;
+    padding: 0.7em 1.5em;
+    position: absolute;
+    top: 0;
+    background: $black2;
+    border-radius: $minRadius;
+    &.solutions {
+      right: 0;
+    }
+    &.questions {
+      left: 0;
+    }
+    &:hover {
+      background: $grey3;
+    }
+  }
+  &.show {
+    box-shadow: 0 0 0 1px $grey;
+    @include desktop {
+      div {
+        top: -3.5em;
+        opacity: 1;
+        z-index: 2;
+        &.solutions {
+          right: -6em;
+        }
+        &.questions {
+          left: -6em;
+        }
+      }
+    }
+    div {
+      opacity: 1;
+      z-index: 2;
+    }
+    @include mobile {
+      div {
+        &.solutions {
+          right: -120%;
+        }
+        &.questions {
+          left: -120%;
+        }
+      }
+    }
+  }
+}
